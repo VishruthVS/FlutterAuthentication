@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "8905457628",
+    "project_id": "authsingin",
+    "storage_bucket": "authsingin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8905457628:android:3ea63ed6ccdad6c8635919",
+        "android_client_info": {
+          "package_name": "com.example.signinauth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5WnFqRu2Lq1dFcbiqyBdEMo3iz7nrV58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
