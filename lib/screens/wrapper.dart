@@ -7,6 +7,6 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //returns a home screen if the user is logged in , if not returns a authenticate screen
-    return Autheticate();
+    return Authenticate();
   }
 }
