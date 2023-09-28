@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:signinauth/services/auth.dart';
 
 class Singin extends StatefulWidget {
-  const Singin({super.key});
+  final Function toggleView;
+
+  const Singin({super.key, required this.toggleView});
 
   @override
   State<Singin> createState() => _SinginState();
@@ -22,9 +24,20 @@ class _SinginState extends State<Singin> {
         backgroundColor: const Color.fromARGB(255, 181, 181, 48),
         elevation: 0.0,
         title: Text('sign in'),
+        actions: <Widget>[
+          TextButton.icon(
+            onPressed: () {
+              widget.toggleView();
+            },
+            icon: Icon(Icons.person),
+            label: Text('Register'),
+          ),
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+
+        //FOR ANONYMOUS SIGN_IN
         // child: ElevatedButton(
         //   style: ButtonStyle(
         //     backgroundColor: MaterialStateProperty.all<Color>(Colors.white54),
@@ -40,6 +53,7 @@ class _SinginState extends State<Singin> {
         //   },
         //   child: Text('Sing in anom'),
         // ),
+        //FOR EMAIL/PASSWORD LOGIN
         child: Form(
           child: Column(
             children: <Widget>[
