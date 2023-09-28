@@ -5,12 +5,19 @@ class AuthService {
   final FirebaseAuth.FirebaseAuth _auth = FirebaseAuth.FirebaseAuth.instance;
 
 //create User object based on firebase userid
-  User _userFromFirebaseUser(FirebaseAuth.User? user) {
+  User? _userFromFirebaseUser(FirebaseAuth.User? user) {
     //Use UserCredential instead of FirebaseUser
 
-    return user != null
-        ? User(uid: user.uid)
-        : User(uid: ''); // Return an empty User object if user is null
+    return user != null ? User(uid: user.uid) : null;
+    // Return an empty User object if user is null
+  }
+
+  // Auth changes using stream
+  Stream<User?> get user {
+    return _auth
+        .authStateChanges()
+        // .map((firebaseUser) => _userFromFirebaseUser(firebaseUser));
+        .map(_userFromFirebaseUser);
   }
   //sign-in : Anonymous
 
@@ -29,4 +36,13 @@ class AuthService {
   //sign-in : Email/Password
   // Register with email/password
   //sign out
+
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
