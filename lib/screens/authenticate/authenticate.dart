@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:signinauth/screens/authenticate/sing_in.dart';
+import 'package:signinauth/screens/authenticate/register.dart';
 
 class Authenticate extends StatefulWidget {
   const Authenticate({super.key});
@@ -12,7 +12,7 @@ class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Singin(),
+      child: Register(),
     );
   }
 }
