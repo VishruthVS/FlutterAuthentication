@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signinauth/services/auth.dart';
+import 'package:signinauth/shared/constants.dart';
 
 class Singin extends StatefulWidget {
   final Function toggleView;
@@ -61,20 +62,25 @@ class _SinginState extends State<Singin> {
           child: Column(
             children: <Widget>[
               SizedBox(height: 20.0),
-              TextFormField(validator: (val) {
-                if (val?.isEmpty ?? true) {
-                  return 'Enter an email';
-                }
-                if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
-                    .hasMatch(val!)) {
-                  return 'Enter a valid email address';
-                }
-                return null;
-              }, onChanged: (val) {
-                setState(() => email = val);
-              }),
+              TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Email'),
+                  validator: (val) {
+                    if (val?.isEmpty ?? true) {
+                      return 'Enter an email';
+                    }
+                    if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
+                        .hasMatch(val!)) {
+                      return 'Enter a valid email address';
+                    }
+                    return null;
+                  },
+                  onChanged: (val) {
+                    setState(() => email = val);
+                  }),
               SizedBox(height: 20.0),
               TextFormField(
+                  decoration:
+                      textInputDecoration.copyWith(hintText: 'Password'),
                   validator: (val) {
                     if ((val?.length ?? 0) < 6) {
                       return 'Enter a password of 6+ characters';
