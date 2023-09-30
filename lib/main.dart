@@ -8,6 +8,10 @@ import 'package:signinauth/services/auth.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  debugPrint = (String? message, {int? wrapWidth}) {
+    // You can customize how the logs are printed here
+    print(message);
+  };
   runApp(const MyApp());
 }
 
