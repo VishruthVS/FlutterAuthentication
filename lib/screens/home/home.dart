@@ -46,7 +46,15 @@ class Home extends StatelessWidget {
             )
           ],
         ),
-        body: BrewList(),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                // 2 white spaces (or 1 tab) before assets and 4 white spaces (or 2 tabs) before - images...
+                image: AssetImage('assets/coffee_bg.jpg'),
+                fit: BoxFit.cover),
+          ),
+          child: BrewList(),
+        ),
       ),
     );
   }
